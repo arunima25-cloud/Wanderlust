@@ -1,0 +1,117 @@
+<% layout("/layouts/boilerplate") %>
+
+<h3>Add New Listing</h3>
+
+<form
+    action="/listings"
+    method="POST"
+    enctype="multipart/form-data"
+    class="needs-validation"
+    novalidate
+>
+
+    <!-- Title -->
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input
+            name="listing[title]"
+            id="title"
+            type="text"
+            placeholder="Enter title"
+            class="form-control"
+            required
+        >
+        <div class="valid-feedback">
+            Title looks good!
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea
+            name="listing[description]"
+            id="description"
+            placeholder="Enter description"
+            class="form-control"
+            required
+        ></textarea>
+        <div class="valid-feedback">
+            Please enter a short description!
+        </div>
+    </div>
+
+    <!-- Upload Image -->
+    <div class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+        <input
+            type="file"
+            name="image"
+            id="image"
+            class="form-control"
+            required
+        >
+        <div class="invalid-feedback">
+            Please upload an image.
+        </div>
+    </div>
+
+    <div class="row">
+
+        <!-- Price -->
+        <div class="col-md-4 mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input
+                name="listing[price]"
+                id="price"
+                type="number"
+                placeholder="Enter price"
+                class="form-control"
+                required
+            >
+            <div class="invalid-feedback">
+                Please enter a valid price!
+            </div>
+        </div>
+
+        <!-- Country -->
+        <div class="col-md-8 mb-3">
+            <label for="country" class="form-label">Country</label>
+            <input
+                name="listing[country]"
+                id="country"
+                type="text"
+                placeholder="Enter country"
+                class="form-control"
+                required
+            >
+            <div class="invalid-feedback">
+                Please enter the country name!
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Location -->
+    <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input
+            name="listing[location]"
+            id="location"
+            type="text"
+            placeholder="Enter location"
+            class="form-control"
+            required
+        >
+        <div class="invalid-feedback">
+            Please enter the location!
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark add-btn mt-3">
+        Add
+    </button>
+
+</form>
+
+<br><br><br>
