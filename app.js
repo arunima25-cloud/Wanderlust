@@ -2,6 +2,9 @@ if (process.env.NODE_ENV != "production") {
     require("dotenv").config();
 }
 
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -19,7 +22,7 @@ const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const {MongoStore} = require("connect-mongo");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -53,7 +56,7 @@ app.engine("ejs", ejsMate);
 
 app.use(express.static(path.join(__dirname, "/public")));
 const store = MongoStore.create({
-    mongourl: dburl,
+    mongoUrl: dburl,
     crypto: {
         secret: process.env.SECRET,
     },
