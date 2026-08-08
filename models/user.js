@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// 👇 THIS IS THE IMPORTANT CHANGE
-const passportLocalMongoose = require("passport-local-mongoose").default;
+const passportLocalMongooseModule = require("passport-local-mongoose");
+const passportLocalMongoose =
+    passportLocalMongooseModule.default || passportLocalMongooseModule;
 
 const userSchema = new Schema({
     email: {
